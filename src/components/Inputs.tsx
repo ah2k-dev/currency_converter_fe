@@ -16,6 +16,10 @@ const Inputs: React.FC = () => {
 
   const convert = () => {
     dispatch(currencyConvert(baseCurrency, targetCurrencies, amount));
+    // reset state
+    setBaseCurrency("EUR");
+    setTargetCurrencies(["USD"]);
+    setAmount(1);
   };
 
   return (
@@ -43,7 +47,9 @@ const Inputs: React.FC = () => {
             className="col-12 mb-1"
           />
           <Multiselect
-            options={currencies}
+            options={currencies.filter(
+              (item: any) => item.value !== baseCurrency
+            )}
             onSelect={(selectedList, selectedItem) =>
               setTargetCurrencies(selectedList.map((item: any) => item.value))
             }
