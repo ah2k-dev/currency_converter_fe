@@ -16,7 +16,7 @@ const Conversions: React.FC = () => {
             from: "N/A",
             to: { "N/A": 0 },
             amount: 0,
-            date: "N/A",
+            date: new Date().toISOString(),
           }}
           ind={0}
         />
